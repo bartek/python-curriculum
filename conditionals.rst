@@ -2,7 +2,7 @@ Conditional Statements (Lesson 3)
 #################################
 
 Having variables and a basic understanding of iteration under our belt, we need
-to dive into logic. The objectives of this class will be:
+to dive into conditional programs. The objectives of this class will be:
 
 * Introduction to conditional statements
 * Clearer understanding what signifies a block of code in Python
