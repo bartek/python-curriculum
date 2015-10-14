@@ -91,7 +91,7 @@ For example, if you are 12 years old, the following code would print "You're
 
 .. sourcecode:: python
 
-   age = 12
+   your_age = 12
    if your_age == 12:
       print("You're 12!")
 
