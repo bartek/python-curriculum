@@ -43,6 +43,10 @@ monitors off whenever a lesson was being given.
 Please feel free to contribute by exploring the lessons already laid out, adding
 your insight where you please.
 
+Much of the lessons in this curriculum are inspired from various sources, but
+especially `Python For Kids <https://www.nostarch.com/pythonforkids>`_, by Jason
+R. Briggs.
+
 
 Indices and tables
 ==================
