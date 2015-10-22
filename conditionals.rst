@@ -2,7 +2,7 @@ Conditional Statements (Lesson 3)
 #################################
 
 Having variables and a basic understanding of iteration under our belt, we need
-to dive into logic. The objectives of this class will be:
+to dive into conditional programs. The objectives of this class will be:
 
 * Introduction to conditional statements
 * Clearer understanding what signifies a block of code in Python
@@ -91,7 +91,7 @@ For example, if you are 12 years old, the following code would print "You're
 
 .. sourcecode:: python
 
-   age = 12
+   your_age = 12
    if your_age == 12:
       print("You're 12!")
 
@@ -126,7 +126,7 @@ called an "else-if conditional". Let's see what that looks like.
    elif score == 100:
       print("You have all the points!")
 
-Now our programs are getting pretty complex! When we first run this wee see *You
+Now our programs are getting pretty complex! When we first run this we see *You
 have some points.*. Then, if we change ``score`` to equal ``100``, we will see
 *You have all the points!*.
 
@@ -196,9 +196,10 @@ low. Let's look at how this code will look like:
          print("You're right!")
          break
 
-There are some new things here. Like ``while`` and ``input``, but don't worry
-too much about that. We will learn more what those mean, the important part is
+There are some new things here. Like ``while``, ``break``, and ``input``. Explain to the class at a high level what this means, but let's not worry too much about it for now. We will learn more what those mean, the important part is
 we understand our conditionals.
+
+Provide this example to the class, but encourage them to use their own game. Instead of a number between 0 and 100, maybe it's a different range. What about guessing a word? That might be tough, but give them ideas.
 
 For bonus, ask the students if they can figure out how ask for the persons name
 and instead of saying ``Your``, use their knowledge from previous weeks to
