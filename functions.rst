@@ -188,44 +188,43 @@ different values.
 Exercise
 --------
 
-Let's use our new knowledge of functions to help us make a world jumbling game!
-We will give Python a list of words, and each time we play, it will jumble a
-word from that list and ask us to guess.
+Let's use our new knowledge of functions to help us make an inter-planetary
+bank! Our bank will be pretty simple, allowing us to deposit, withdraw, and see
+our space cash balance.
 
-We can use our random number game from last week as an example for some of the
-challenges we will have here. We will provide a jumble word function, but we
-must challenge the students in other ways.
+We'll start the students off with the deposit function, and an overview of  the
+application, then leave them to implement the ``withdraw`` and ``balance``
+functions. They can modify the banks theme and questions as they wish, or even
+add more functions if they can think of such!
 
 .. sourcecode:: python
 
-   import random
+   print("Welcome to Space Bank! For all your inter-galactic needs!")
 
-   words = [
-      'python',
-      'computers',
-      'toronto',
-      'bluejays',
-   ]
+   total_cash = 0
 
-   def jumble_word(word):
-      jumble = ""
-      while word:
-         position = random.randrange(len(word))
-         jumble += word[position]
-         word = word[:position] + word[(position + 1):]
-      return jumble
-
-   word = random.choice(words)
+   def deposit(current_cash, amount):
+     return current_cash + amount
 
    while True:
-      print("The jumble is: %s" % jumble)
-      guess = input("What is your guess?")
+     print("1 - Deposit")
+     print("2 - Withdrawal")
+     print("3 - Space Cash Balance")
+     print("Any other key to exit")
 
-      ...
+     command = str(input("What would you like to do? "))
+     if command == "1":
+       amount = int(input("How much space bucks would you like to deposit? "))
+       total_cash = deposit(total_cash, amount)
+       print("Thank you! You now have %s " % total_cash)
+     else:
+       break
 
-Challenges:
+Bonus Challenges:
 
-   * Look back at your work last week to see how you can check your guess
-     against what the computer picked.
-   * Can you make a function that takes your ``guess``, and compares it against
-     the computers ``word``, and returns if its correct or not?
+   * Add a function to that tells the user what temperature is. But because
+     we're sneaky, let's use ``random`` like we did from other classes to
+     randomly provide the weather.
+   * Add restrictions to your ``deposit`` and ``withdraw`` functions so that
+     they cannot deposit negative values, and they cannot withdraw more than
+     they have, respectively.
