@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Functions (Lesson 4) &mdash; Python Curriculum 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Python Curriculum 0.1.0 documentation" href="index.html" />
+    <link rel="prev" title="Conditional Statements (Lesson 3)" href="conditionals.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="functions-lesson-4">
+<h1>Functions (Lesson 4)<a class="headerlink" href="#functions-lesson-4" title="Permalink to this headline">¶</a></h1>
+<p>The objective of this class will be:</p>
+<ul class="simple">
+<li>Introduce functions</li>
+<li>Clear understanding of why we need functions as our programs grow.</li>
+<li>Variable Scope</li>
+</ul>
+<p>Begin by congratulating the students on their knowledge of the Python
+fundamentals. The first three weeks have been quick, but have gone over very
+important parts of Python.</p>
+<p>Now, we&#8217;ll begin noticing our programs grow, and we might begin repeating
+ourselves. Enter functions</p>
+<p>Tell the class they&#8217;ve already seen one of the ways functions are re-used.</p>
+<p>Remember when we did this?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">computers_choice</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We re-used a function that was written by people just like you, and this
+function was added to the Python &#8220;library&#8221;.</p>
+<p>Think of functions as chunks of code that tell Python to do something. They are
+one way to re-use something. We can tell our programs to use functions again and
+again.</p>
+<p>When you&#8217;re writing small programs, functions are handy. Once you start writing
+long, more complicated programs, like games, functions are <em>essential</em>!</p>
+<div class="section" id="writing-our-first-function">
+<h2>Writing Our First Function<a class="headerlink" href="#writing-our-first-function" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s write our own function, and understand how it is built.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">say_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;Hello </span><span class="si">%s</span><span class="s">&quot;</span> <span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ok, let&#8217;s break this down. A function is made up of three parts: <em>name</em>,
+<em>parameters</em>, and the <em>body</em>.</p>
+<p>The name of this function is <code class="docutils literal"><span class="pre">say_name</span></code>. We generally want to try and name
+functions to match what they are doing. The parameters of this function is one
+variable, <code class="docutils literal"><span class="pre">name</span></code>, and the body is the <code class="docutils literal"><span class="pre">print</span></code> statement.</p>
+<p>Finally, we will notice a new way of printing variables. The <code class="docutils literal"><span class="pre">%s</span></code> is just a
+place holder for the variable at the end of the line.</p>
+<p>Let&#8217;s use our function.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">say_name</span><span class="p">(</span><span class="s">&quot;Bartek&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When we run this, we will see it prints <code class="docutils literal"><span class="pre">Hello</span> <span class="pre">Bartek</span></code>.</p>
+<p>A function can take more than one argument. It can take as many as your computer
+can handle, really.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">say_full_name</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">):</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;Hello </span><span class="si">%s</span><span class="s"> </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Ask the class if anyone can guess how we would call this function. Then let&#8217;s
+look at the answer. Additionally, we point out another use-case of our <code class="docutils literal"><span class="pre">%s</span></code>
+placeholder.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">say_full_name</span><span class="p">(</span><span class="s">&quot;Bartek&quot;</span><span class="p">,</span> <span class="s">&quot;Ciszkowski&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Of course, these <em>parameters</em> for a function can live in variables.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">fname</span> <span class="o">=</span> <span class="s">&quot;Bartek&quot;</span>
+<span class="n">lname</span> <span class="o">=</span> <span class="s">&quot;Ciszkowski&quot;</span>
+<span class="n">say_full_name</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">lname</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And we will see the same result, <code class="docutils literal"><span class="pre">Hello</span> <span class="pre">Bartek</span> <span class="pre">Ciszkowski</span></code>.</p>
+<p>Finally, most functions return something. Today we will also learn the
+<code class="docutils literal"><span class="pre">return</span></code> statement. Returning information is useful because we can put it back
+into a variable, and then use that result in another part of our program. Let&#8217;s
+look at what that looks like.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">savings</span><span class="p">(</span><span class="n">pocket_money</span><span class="p">,</span> <span class="n">paper_route</span><span class="p">,</span> <span class="n">under_couch</span><span class="p">):</span>
+   <span class="k">return</span> <span class="n">pocket_money</span> <span class="o">+</span> <span class="n">paper_route</span> <span class="o">+</span> <span class="n">under_couch</span>
+</pre></div>
+</div>
+<p>Now, we can call this function with our three ways we save money, and see what
+the result is. Let&#8217;s try it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">pocket_money</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">paper_route</span> <span class="o">=</span> <span class="mi">24</span>
+<span class="n">under_couch</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">my_savings</span> <span class="o">=</span> <span class="n">savings</span><span class="p">(</span><span class="n">pocket_money</span><span class="p">,</span> <span class="n">paper_route</span><span class="p">,</span> <span class="n">under_couch</span><span class="p">)</span>
+
+<span class="c"># Or we can call the function without variables, of course.</span>
+
+<span class="n">my_savings</span> <span class="o">=</span> <span class="n">savings</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And finally, we can <code class="docutils literal"><span class="pre">print(my_savings)</span></code> and see that our <code class="docutils literal"><span class="pre">savings</span></code> function
+did the work for us to calculate our savings.</p>
+<p>Allow the students to try some examples of <code class="docutils literal"><span class="pre">return</span></code>&#8216;ing data from a function.
+Challenge here can be to write a function which returns someones name, but in
+reverse (last name first, then first name)!</p>
+</div>
+<div class="section" id="variable-scope-in-functions">
+<h2>Variable Scope in Functions<a class="headerlink" href="#variable-scope-in-functions" title="Permalink to this headline">¶</a></h2>
+<p>Now that we are using functions and our programs are getting larger. We have to
+be aware of something called <em>scope</em> in Python. Scope is important, because
+Python only trusts variables for a specific function, within a certain area.
+Let&#8217;s look at an example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">scope_test</span><span class="p">():</span>
+   <span class="n">pencils</span> <span class="o">=</span> <span class="mi">10</span>
+   <span class="n">pens</span> <span class="o">=</span> <span class="mi">5</span>
+   <span class="k">return</span> <span class="n">pens</span> <span class="o">+</span> <span class="n">pencils</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">scope_test</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Let&#8217;s run this, and see the result. Everything looks good right? Now, let&#8217;s ask
+the class what would happen if we did something like so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">scope_test</span><span class="p">():</span>
+   <span class="n">pencils</span> <span class="o">=</span> <span class="mi">10</span>
+   <span class="n">pens</span> <span class="o">=</span> <span class="mi">5</span>
+   <span class="k">return</span> <span class="n">pens</span> <span class="o">+</span> <span class="n">pencils</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">scope_test</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pens</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is because if we look at the code. <code class="docutils literal"><span class="pre">pens</span></code> is only defined inside the code
+block for the <code class="docutils literal"><span class="pre">scope_test</span></code> function. So, nothing else in the Python program
+has access to it. This is nice because when our programs get really big, we can
+re-use the same name for variables inside functions without worry about them
+conflicting with each other.</p>
+</div>
+<div class="section" id="a-more-complex-function">
+<h2>A More Complex Function<a class="headerlink" href="#a-more-complex-function" title="Permalink to this headline">¶</a></h2>
+<p>Now, so far, we have had simple functions that don&#8217;t really do much more than
+our brains can do. It&#8217;s pretty easy to count some simple pocket change, so let&#8217;s
+make a function that does something our brains would have a hard time doing!</p>
+<p>So let&#8217;s suppose we&#8217;re building a car that goes to the future. It&#8217;s a time
+travel car. We can build this car out of old cans we find. We know we can
+flatten 2 cans a week to create the panels for our car, and we need to flatten
+500 cans to complete the car.</p>
+<p>We can easily write a function to figure out how long it will take to flatten
+all 500 cans. Let&#8217;s see what that looks like.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">timetravel_car_building</span><span class="p">(</span><span class="n">cans_per_week</span><span class="p">):</span>
+   <span class="n">total_cans</span> <span class="o">=</span> <span class="mi">0</span>
+   <span class="k">for</span> <span class="n">week</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">53</span><span class="p">):</span>
+      <span class="n">total_cans</span> <span class="o">=</span> <span class="n">total_cans</span> <span class="o">+</span> <span class="n">cans</span>
+      <span class="k">print</span><span class="p">(</span><span class="s">&quot;Week </span><span class="si">%s</span><span class="s"> = </span><span class="si">%s</span><span class="s"> cans&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">week</span><span class="p">,</span> <span class="n">total_cans</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Let&#8217;s try it out! First with 2 cans per week. Is it enough? Let&#8217;s figure out how
+many cans per week we need to flatten to build our car within a year.</p>
+<p>The students will figure this out by writing out the function, and trying
+different values.</p>
+</div>
+<div class="section" id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s use our new knowledge of functions to help us make a world jumbling game!
+We will give Python a list of words, and each time we play, it will jumble a
+word from that list and ask us to guess.</p>
+<p>We can use our random number game from last week as an example for some of the
+challenges we will have here. We will provide a jumble word function, but we
+must challenge the students in other ways.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="s">&#39;python&#39;</span><span class="p">,</span>
+   <span class="s">&#39;computers&#39;</span><span class="p">,</span>
+   <span class="s">&#39;toronto&#39;</span><span class="p">,</span>
+   <span class="s">&#39;bluejays&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">jumble_word</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+   <span class="n">jumble</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+   <span class="k">while</span> <span class="n">word</span><span class="p">:</span>
+      <span class="n">position</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+      <span class="n">jumble</span> <span class="o">+=</span> <span class="n">word</span><span class="p">[</span><span class="n">position</span><span class="p">]</span>
+      <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="p">[:</span><span class="n">position</span><span class="p">]</span> <span class="o">+</span> <span class="n">word</span><span class="p">[(</span><span class="n">position</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):]</span>
+   <span class="k">return</span> <span class="n">jumble</span>
+
+<span class="n">word</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;The jumble is: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">jumble</span><span class="p">)</span>
+   <span class="n">guess</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;What is your guess?&quot;</span><span class="p">)</span>
+
+   <span class="o">...</span>
+</pre></div>
+</div>
+<p>Challenges:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Look back at your work last week to see how you can check your guess
+against what the computer picked.</li>
+<li>Can you make a function that takes your <code class="docutils literal"><span class="pre">guess</span></code>, and compares it against
+the computers <code class="docutils literal"><span class="pre">word</span></code>, and returns if its correct or not?</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Functions (Lesson 4)</a><ul>
+<li><a class="reference internal" href="#writing-our-first-function">Writing Our First Function</a></li>
+<li><a class="reference internal" href="#variable-scope-in-functions">Variable Scope in Functions</a></li>
+<li><a class="reference internal" href="#a-more-complex-function">A More Complex Function</a></li>
+<li><a class="reference internal" href="#exercise">Exercise</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="conditionals.html" title="previous chapter">Conditional Statements (Lesson 3)</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/functions.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Bartek Ciszkowski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/functions.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

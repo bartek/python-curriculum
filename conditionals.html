@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Conditional Statements (Lesson 3) &mdash; Python Curriculum 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Python Curriculum 0.1.0 documentation" href="index.html" />
+    <link rel="next" title="Functions (Lesson 4)" href="functions.html" />
+    <link rel="prev" title="Variables &amp; Iteration (Lesson 2)" href="variables.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="conditional-statements-lesson-3">
+<h1>Conditional Statements (Lesson 3)<a class="headerlink" href="#conditional-statements-lesson-3" title="Permalink to this headline">¶</a></h1>
+<p>Having variables and a basic understanding of iteration under our belt, we need
+to dive into conditional programs. The objectives of this class will be:</p>
+<ul class="simple">
+<li>Introduction to conditional statements</li>
+<li>Clearer understanding what signifies a block of code in Python</li>
+<li>The difference between strings and numbers (important in conditionals!)</li>
+</ul>
+<p>Conditional statements can be seen as a way to ask questions to the computer.
+Often, we want our program to do something differently depending on something
+else. For example, if the person using our program was younger than 16, we would
+not ask them if they have a Drivers License yet.</p>
+<p>Let&#8217;s look at how a conditional statement looks like in Python:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">age</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;You are pretty old.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Remember our <code class="docutils literal"><span class="pre">for</span></code> loop? There are a few similarities. This <code class="docutils literal"><span class="pre">if</span></code> statement
+also ends with a colon (<code class="docutils literal"><span class="pre">:</span></code>), and the <code class="docutils literal"><span class="pre">print</span></code> is tabbed inside.</p>
+<div class="section" id="code-blocks">
+<h2>Code Blocks<a class="headerlink" href="#code-blocks" title="Permalink to this headline">¶</a></h2>
+<p>It&#8217;s important we begin understanding how code blocks work. Let&#8217;s look at our
+first example again, with a couple more lines added to it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">age</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;You are pretty old.&quot;</span><span class="p">)</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;Maybe you need a different class.&quot;</span><span class="p">)</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;Are you finished school?&quot;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;See you later.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When you look closely, we can see that out of the four <code class="docutils literal"><span class="pre">print</span></code> statements, one
+of them is not aligned like the others. Why is this?</p>
+<p>This is because the first three <code class="docutils literal"><span class="pre">print</span></code> statements are part of the <code class="docutils literal"><span class="pre">if</span></code> code
+block. This means we will only see those if the <code class="docutils literal"><span class="pre">age</span></code> is over 20. Let&#8217;s run
+the program and see what happens.</p>
+<p>You will notice that because <code class="docutils literal"><span class="pre">age</span></code> is not over 20, we only see the text <em>See
+you later.</em></p>
+<p>Now, once you are in a code block you don&#8217;t want to really change your tabbing.
+For example, let&#8217;s look at this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">age</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;You are pretty old.&quot;</span><span class="p">)</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;Maybe you need a different class.&quot;</span><span class="p">)</span>
+      <span class="k">print</span><span class="p">(</span><span class="s">&quot;Are you finished school?&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Instead of going back to the left, we went further right with the third
+<code class="docutils literal"><span class="pre">print</span></code>. Ask the students what they think will happen here.</p>
+<p>You will present to the class an <code class="docutils literal"><span class="pre">IndentationError</span></code>. This can be explained
+because we never started a new code block (with an <code class="docutils literal"><span class="pre">if</span></code> or a <code class="docutils literal"><span class="pre">for</span></code>, which
+both end in colons!) so Python doesn&#8217;t allow it.</p>
+<p>Allow the students to write down the example in their own editor and try it out.</p>
+</div>
+<div class="section" id="more-comparisons">
+<h2>More Comparisons<a class="headerlink" href="#more-comparisons" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have an understanding of code blocks, let&#8217;s look at more ways to
+compare. We have an assortment of special characters that compare one thing to
+another, they are:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">==</span>  <span class="c"># Equal to</span>
+<span class="o">!=</span>  <span class="c"># Not equal to</span>
+<span class="o">&gt;</span>   <span class="c"># Greater than</span>
+<span class="o">&lt;</span>   <span class="c"># Less than</span>
+<span class="o">&gt;=</span>  <span class="c"># Greater than or equal to</span>
+<span class="o">&lt;=</span>  <span class="c"># Less than or equal to</span>
+</pre></div>
+</div>
+<p>For example, if you are 12 years old, the following code would print &#8220;You&#8217;re
+12!&#8221;</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">your_age</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="k">if</span> <span class="n">your_age</span> <span class="o">==</span> <span class="mi">12</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;You&#39;re 12!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Allow the students to try a few of these on their own, and provide some examples
+for the class through an interactive session, going over some of the operators.</p>
+<p>Now, we can also use conditionals to do something when a condition is not met.
+Let&#8217;s look at what this looks like in an example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">keys</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">if</span> <span class="n">keys</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;You opened the secret door.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;You need a key to open this secret door.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Because we don&#8217;t have any <code class="docutils literal"><span class="pre">keys</span></code>, we tell the user that they need a key to
+open the door. Try changing <code class="docutils literal"><span class="pre">keys</span></code> to a positive number, and see the
+difference.</p>
+<p>We can get even more creative by using the <code class="docutils literal"><span class="pre">elif</span></code> statement to do what is
+called an &#8220;else-if conditional&#8221;. Let&#8217;s see what that looks like.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">score</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="k">if</span> <span class="n">score</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;You need more points!&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">score</span> <span class="o">==</span> <span class="mi">20</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;You have some points.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">score</span> <span class="o">==</span> <span class="mi">100</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;You have all the points!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now our programs are getting pretty complex! When we first run this we see <em>You
+have some points.</em>. Then, if we change <code class="docutils literal"><span class="pre">score</span></code> to equal <code class="docutils literal"><span class="pre">100</span></code>, we will see
+<em>You have all the points!</em>.</p>
+<p>What happens when we change score to say, <code class="docutils literal"><span class="pre">10</span></code>? We see nothing is printed.
+This is because none of our conditionals match our options. Remember the
+<code class="docutils literal"><span class="pre">else</span></code> condition we used earlier? We can use that in this example to make our
+computer say something if nothing else matches.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">score</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="k">if</span> <span class="n">score</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;You need more points!&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">score</span> <span class="o">==</span> <span class="mi">20</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;You have some points.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">score</span> <span class="o">==</span> <span class="mi">100</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;You have all the points!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;Ok, you have &quot;</span> <span class="o">+</span> <span class="n">score</span> <span class="o">+</span> <span class="s">&quot; points&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="types-of-variables">
+<h2>Types Of Variables<a class="headerlink" href="#types-of-variables" title="Permalink to this headline">¶</a></h2>
+<p>So far, we have only compared numbers. Remember, that in Python numbers and
+strings are different things. The following two are different:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The first is a number, and the second, wrapped in quotes, is a string. This is
+very important when we compare variables, as it can really confuse Python. Let&#8217;s
+take a look:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">age</span> <span class="o">=</span> <span class="s">&#39;12&#39;</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">==</span> <span class="mi">12</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;You&#39;re 12 years old!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When we run this, we will see that Python never tells us we&#8217;re 12 years old. If
+we look closely, we see, that we set <code class="docutils literal"><span class="pre">age</span></code> to be <code class="docutils literal"><span class="pre">'12'</span></code>, a string. Not a
+number! When we change <code class="docutils literal"><span class="pre">age</span></code> to a number, our code will work.</p>
+</div>
+<div class="section" id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s build a simple guessing game using our new knowledge of conditional
+statements. The computer will pick a random number that you won&#8217;t know, and then
+we have to try and guess it. The computer will tell us if we&#8217;re too high or too
+low. Let&#8217;s look at how this code will look like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">computers_choice</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+   <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;What is your guess?&quot;</span><span class="p">))</span>
+   <span class="k">if</span> <span class="n">guess</span> <span class="o">&gt;</span> <span class="n">computers_choice</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="s">&quot;Your guess is too high!&quot;</span><span class="p">)</span>
+   <span class="k">elif</span> <span class="n">guess</span> <span class="o">&lt;</span> <span class="n">computers_choice</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="s">&quot;Your guess is too low!&quot;</span><span class="p">)</span>
+   <span class="k">elif</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">computers_choice</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="s">&quot;You&#39;re right!&quot;</span><span class="p">)</span>
+      <span class="k">break</span>
+</pre></div>
+</div>
+<p>There are some new things here. Like <code class="docutils literal"><span class="pre">while</span></code>, <code class="docutils literal"><span class="pre">break</span></code>, and <code class="docutils literal"><span class="pre">input</span></code>. Explain to the class at a high level what this means, but let&#8217;s not worry too much about it for now. We will learn more what those mean, the important part is
+we understand our conditionals.</p>
+<p>Provide this example to the class, but encourage them to use their own game. Instead of a number between 0 and 100, maybe it&#8217;s a different range. What about guessing a word? That might be tough, but give them ideas.</p>
+<p>For bonus, ask the students if they can figure out how ask for the persons name
+and instead of saying <code class="docutils literal"><span class="pre">Your</span></code>, use their knowledge from previous weeks to
+reference the person by their name.</p>
+<p>For further bonus (Generally useful if someone is ahead in class), can you make the conditional statements more accurate? Maybe instead of just saying <em>Your guess is too high!</em> you can add more conditions, so we can tell the user they are <em>WAY</em> too high, or <em>WAY</em> too low, and so on.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Conditional Statements (Lesson 3)</a><ul>
+<li><a class="reference internal" href="#code-blocks">Code Blocks</a></li>
+<li><a class="reference internal" href="#more-comparisons">More Comparisons</a></li>
+<li><a class="reference internal" href="#types-of-variables">Types Of Variables</a></li>
+<li><a class="reference internal" href="#exercise">Exercise</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="variables.html" title="previous chapter">Variables &amp; Iteration (Lesson 2)</a></li>
+      <li>Next: <a href="functions.html" title="next chapter">Functions (Lesson 4)</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/conditionals.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Bartek Ciszkowski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/conditionals.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

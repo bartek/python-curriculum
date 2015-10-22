@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction (Lesson 1) &mdash; Python Curriculum 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Python Curriculum 0.1.0 documentation" href="index.html" />
+    <link rel="next" title="Variables &amp; Iteration (Lesson 2)" href="variables.html" />
+    <link rel="prev" title="Python Curriculum" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction-lesson-1">
+<h1>Introduction (Lesson 1)<a class="headerlink" href="#introduction-lesson-1" title="Permalink to this headline">¶</a></h1>
+<p>First class! In this initial lesson, we aren&#8217;t going to be too formal. We want
+to achieve the following:</p>
+<ul class="simple">
+<li>Introduce names (teachers, mentors, students)</li>
+<li>Get every student setup with Python</li>
+<li>Be able to begin imagining possibilities for their own Python-based projects</li>
+<li>Begin understanding the concepts of computational creation</li>
+<li>Begin establishing a culture of fearlessness, exploration, and peer collaboration</li>
+</ul>
+<div class="section" id="introducing-python">
+<h2>Introducing Python<a class="headerlink" href="#introducing-python" title="Permalink to this headline">¶</a></h2>
+<p>After introductions of teachers and students, it&#8217;s time to introduce Python!
+Python is fun to learn, feels a little bit like learning English, and as well,
+it&#8217;s a language used in real life businesses. We can share how companies like
+NASA, Google, and Facebook use Python, as well that it&#8217;s taught in high school
+and university.</p>
+<p>Even if you don&#8217;t want to become a computer programmer, learning a programming
+language like Python will refine your logical thinking, increase creativity, and
+teach you not to fear a computer.</p>
+</div>
+<div class="section" id="introducing-the-toolset">
+<h2>Introducing the toolset<a class="headerlink" href="#introducing-the-toolset" title="Permalink to this headline">¶</a></h2>
+<p>Depending on the lab environment, you can either install Python and the Python
+Tkinter toolkit, or use the online tools like <a class="reference external" href="http://trinket.io">trinket.io</a></p>
+<p>This curriculum recommends using <a class="reference external" href="http://trinket.io">trinket.io</a>, as it
+provides a great interface for seeing code and the results all in one screen.
+They support registered accounts, allowing the students to save their work and
+share it when at home.</p>
+</div>
+<div class="section" id="first-code-example">
+<h2>First Code Example<a class="headerlink" href="#first-code-example" title="Permalink to this headline">¶</a></h2>
+<p>We&#8217;ll want to take advantage of Python&#8217;s <code class="docutils literal"><span class="pre">turtle</span></code> module as much as we can.
+Thus, we introduce the first Python example is using this module. For the first
+few weeks, we&#8217;ll focus on bringing each lesson back to the <code class="docutils literal"><span class="pre">turtle</span></code> module, to
+provide that visual feedback.</p>
+<p>This snippet can also be found on the <code class="docutils literal"><span class="pre">trinket.io</span></code> website. Get this code on
+the screen using Trinket, so we can see the results beside the code.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="n">tina</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">tina</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s">&#39;turtle&#39;</span><span class="p">)</span>
+
+<span class="n">tina</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span>
+<span class="n">tina</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">tina</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;Why, hello there!&quot;</span><span class="p">)</span>
+<span class="n">tina</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Run this code and share it with the class. There are many concepts in these few
+lines that the students will not understand right away, but go over each line,
+and simply say it out loud.</p>
+<p>We don&#8217;t need to get into how <code class="docutils literal"><span class="pre">import</span></code> works, or why there are brackets where
+they are. Simply identify how <code class="docutils literal"><span class="pre">tina.forward(20)</span></code> affects the turtle&#8217;s movement
+in a specific direction.</p>
+<p>Then, leave the code up on the screen in front of the class and let the students
+try it themselves.</p>
+<p>Students may miss brackets or have certain symbols (<code class="docutils literal"><span class="pre">=</span></code>) within incorrect
+spots. Help them resolve the error, but there&#8217;s no need to get too deep into why
+that happened just yet.</p>
+<p>Eventually, all the students will have the code running. Play with the code
+again in front of the class, adjusting the values. Add more movement.</p>
+<p>Introduce the <code class="docutils literal"><span class="pre">left</span></code> and <code class="docutils literal"><span class="pre">right</span></code> functions on the <code class="docutils literal"><span class="pre">turtle</span></code> module. Allow
+the students to try various implementations throughout the rest of the class.</p>
+<p>As the class  comes to an end, ensure everyone saves their work. We want to
+promote the ability to look back at previous work, as well as being able to
+share it with their friends and family outside of the class (Assuming an online
+tool like <code class="docutils literal"><span class="pre">trinket.io</span></code> was used).</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Introduction (Lesson 1)</a><ul>
+<li><a class="reference internal" href="#introducing-python">Introducing Python</a></li>
+<li><a class="reference internal" href="#introducing-the-toolset">Introducing the toolset</a></li>
+<li><a class="reference internal" href="#first-code-example">First Code Example</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Python Curriculum</a></li>
+      <li>Next: <a href="variables.html" title="next chapter">Variables &amp; Iteration (Lesson 2)</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/intro.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Bartek Ciszkowski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/intro.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Variables &amp; Iteration (Lesson 2) &mdash; Python Curriculum 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Python Curriculum 0.1.0 documentation" href="index.html" />
+    <link rel="next" title="Conditional Statements (Lesson 3)" href="conditionals.html" />
+    <link rel="prev" title="Introduction (Lesson 1)" href="intro.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="variables-iteration-lesson-2">
+<h1>Variables &amp; Iteration (Lesson 2)<a class="headerlink" href="#variables-iteration-lesson-2" title="Permalink to this headline">¶</a></h1>
+<p>It&#8217;s time to begin digging into the core of the Python programming language!
+Understand the basics and begin answering many questions that filled the
+students minds in the last lesson.</p>
+<p>We introduce the class to mention today we&#8217;re going to talk about variables.
+They are one of the main building blocks of any program, and are very important
+in understanding.</p>
+<p>Imagine variables are like labels. They describe, to the computer, a place to
+store information such as numbers, text, lists of numbers and text, and so on.
+Let&#8217;s share a variable declaration on the screen.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">colour</span> <span class="o">=</span> <span class="s">&quot;red&quot;</span>
+</pre></div>
+</div>
+<p>Here, we explain that we have stored the <em>String red</em>, in the variable
+<code class="docutils literal"><span class="pre">colour</span></code>. We identify that a <em>String</em> in Python is wrapped in double quotes.
+We can also use single quotes, but all examples will use double quotes.</p>
+<p>We can print the variable onto the screen, using the <code class="docutils literal"><span class="pre">print</span></code> function.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">colour</span> <span class="o">=</span> <span class="s">&quot;red&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">colour</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We explain why I chose the variable name <code class="docutils literal"><span class="pre">colour</span></code>. I can change <em>red</em> to
+<em>green</em>, but if I changed the variables value to <em>Fred</em> it doesn&#8217;t really
+signify a colour anymore. Re-iterate that variables are like labels. We want
+them to match the value we have put in. So for <em>Fred</em>, a better variable name
+might be <code class="docutils literal"><span class="pre">first_name</span></code>.</p>
+<p>Let&#8217;s share that variables can be numbers. Computers are really good at Math, so
+let&#8217;s see how the computer handles this operation. Can anyone guess the answer?
+(Simple way to get interaction with the class)</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">score</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">score</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">25</span>
+<span class="k">print</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, let&#8217;s share that variables can be used together, and joined using the
+<code class="docutils literal"><span class="pre">+</span></code> operator. Another example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">first_name</span> <span class="o">=</span> <span class="s">&quot;Bartek&quot;</span>
+<span class="n">last_name</span> <span class="o">=</span> <span class="s">&quot;Ciszkowski&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Hello, my name is &quot;</span> <span class="o">+</span> <span class="n">first_name</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">last_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We share that the <code class="docutils literal"><span class="pre">++</span></code> is joining my variables with a string. Explain why we
+must have an string with just a space in it. Show the students what happens if
+we simply had <code class="docutils literal"><span class="pre">first_name</span> <span class="pre">+</span> <span class="pre">last_name</span></code>.</p>
+<p>Provide the students time to enter their own variables, join strings, and fiddle
+with these new concepts.</p>
+<div class="section" id="introducing-lists">
+<h2>Introducing Lists<a class="headerlink" href="#introducing-lists" title="Permalink to this headline">¶</a></h2>
+<p>Lists are very important in any programming language, as they let us put
+information into a more structured way. We can think of lists as buckets, as
+they can contain many types of strings, numbers, or other variables.</p>
+<p>Let&#8217;s see an example of a list using our bucket as an example. We&#8217;ll print the
+list and see what it looks like on the screen.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># This list was provided by the students of the class</span>
+<span class="n">bucket</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;candy&#39;</span><span class="p">,</span> <span class="s">&#39;water&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s">&#39;chocolate&#39;</span><span class="p">,</span> <span class="s">&#39;bucket&#39;</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bucket</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Lists can be a collection of any kind of items. We point out that we have four
+strings and a number. Each of these items can be accessed using a special
+syntax.  Ask the students when the below code is run, what will be printed?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">bucket</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;candy&#39;</span><span class="p">,</span> <span class="s">&#39;water&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s">&#39;chocolate&#39;</span><span class="p">,</span> <span class="s">&#39;bucket&#39;</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bucket</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Of course, most will guess <code class="docutils literal"><span class="pre">candy</span></code>. We explain that in Python, and in most
+computers, counting starts at 0, so the result is <code class="docutils literal"><span class="pre">water</span></code>.</p>
+<p>Let&#8217;s share how we can change lists, by adding to them.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">bucket</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;candy&#39;</span><span class="p">,</span> <span class="s">&#39;water&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s">&#39;chocolate&#39;</span><span class="p">,</span> <span class="s">&#39;bucket&#39;</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bucket</span><span class="p">)</span>
+<span class="n">bucket</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;skittles&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bucket</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let&#8217;s explain why each <code class="docutils literal"><span class="pre">print</span></code> is a little different. This is because Python
+is reading from top to bottom, so the change in our bucket doesn&#8217;t happen in the
+first <code class="docutils literal"><span class="pre">print</span></code>.</p>
+</div>
+<div class="section" id="iteration">
+<h2>Iteration<a class="headerlink" href="#iteration" title="Permalink to this headline">¶</a></h2>
+<p>Finally, before the last part of the lesson, we want to introduce iteration. We
+do this by iterating over the list.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">bucket</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;candy&#39;</span><span class="p">,</span> <span class="s">&#39;water&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s">&#39;chocolate&#39;</span><span class="p">,</span> <span class="s">&#39;bucket&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">bucket</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is a lot to take in, but we introduce the colon (<code class="docutils literal"><span class="pre">:</span></code>) and how it tells
+Python that next line (and perhaps more) are a new section of code. Each new
+section of code needs to be spaced like we see. We explain that <code class="docutils literal"><span class="pre">tab</span></code> can be
+pressed when we need to do this.</p>
+<p>We&#8217;ll better understand when and where Python needs to tab in coming lessons.</p>
+<p>For now, we focus on the result of this code. We see that each item in the
+<code class="docutils literal"><span class="pre">bucket</span></code> is printed. What if we replace the <code class="docutils literal"><span class="pre">print(item)</span></code> with
+<code class="docutils literal"><span class="pre">print(bucket)</span></code>? Let&#8217;s see what happens, and ask if someone understands why.</p>
+<p>Finally, we jump back to <code class="docutils literal"><span class="pre">turtle</span></code>. As mentioned in the introduction, we want
+to be as visual as possible, and <code class="docutils literal"><span class="pre">turtle</span></code> is a great way to achieve this.</p>
+<p>We&#8217;re going to use what we learned about variables and lists to give our turtle
+a list of commands. Let&#8217;s share the following code example (Thanks, <a class="reference external" href="http://trinket.io">trinket.io</a>):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="n">tina</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">tina</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s">&#39;turtle&#39;</span><span class="p">)</span>
+
+<span class="n">number_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="n">tina</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s">&#39;green&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">number_list</span><span class="p">:</span>
+   <span class="n">tina</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">number</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
+   <span class="n">tina</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let&#8217;s display what this does on the screen. We&#8217;ll see our turtle spinning around
+in an ever-growing circle. Fiddle with the <code class="docutils literal"><span class="pre">number_list</span></code> a bit, interactively
+with the class and see the results.</p>
+<p>To wrap up the lesson, allow the students to enter the code and try their own
+commands, number list, and anything else that inspires them. They may need some
+help to really wrap their mind around these new concepts but as they type it out
+more and see the results, it will begin to click.</p>
+<p>Let them continue playing with this code until the end of the class.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Variables &amp; Iteration (Lesson 2)</a><ul>
+<li><a class="reference internal" href="#introducing-lists">Introducing Lists</a></li>
+<li><a class="reference internal" href="#iteration">Iteration</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="intro.html" title="previous chapter">Introduction (Lesson 1)</a></li>
+      <li>Next: <a href="conditionals.html" title="next chapter">Conditional Statements (Lesson 3)</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/variables.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Bartek Ciszkowski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/variables.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
