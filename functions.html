@@ -185,45 +185,44 @@ different values.</p>
 </div>
 <div class="section" id="exercise">
 <h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
-<p>Let&#8217;s use our new knowledge of functions to help us make a world jumbling game!
-We will give Python a list of words, and each time we play, it will jumble a
-word from that list and ask us to guess.</p>
-<p>We can use our random number game from last week as an example for some of the
-challenges we will have here. We will provide a jumble word function, but we
-must challenge the students in other ways.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">random</span>
+<p>Let&#8217;s use our new knowledge of functions to help us make an inter-planetary
+bank! Our bank will be pretty simple, allowing us to deposit, withdraw, and see
+our space cash balance.</p>
+<p>We&#8217;ll start the students off with the deposit function, and an overview of  the
+application, then leave them to implement the <code class="docutils literal"><span class="pre">withdraw</span></code> and <code class="docutils literal"><span class="pre">balance</span></code>
+functions. They can modify the banks theme and questions as they wish, or even
+add more functions if they can think of such!</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&quot;Welcome to Space Bank! For all your inter-galactic needs!&quot;</span><span class="p">)</span>
 
-<span class="n">words</span> <span class="o">=</span> <span class="p">[</span>
-   <span class="s">&#39;python&#39;</span><span class="p">,</span>
-   <span class="s">&#39;computers&#39;</span><span class="p">,</span>
-   <span class="s">&#39;toronto&#39;</span><span class="p">,</span>
-   <span class="s">&#39;bluejays&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+<span class="n">total_cash</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="k">def</span> <span class="nf">jumble_word</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
-   <span class="n">jumble</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-   <span class="k">while</span> <span class="n">word</span><span class="p">:</span>
-      <span class="n">position</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
-      <span class="n">jumble</span> <span class="o">+=</span> <span class="n">word</span><span class="p">[</span><span class="n">position</span><span class="p">]</span>
-      <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="p">[:</span><span class="n">position</span><span class="p">]</span> <span class="o">+</span> <span class="n">word</span><span class="p">[(</span><span class="n">position</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):]</span>
-   <span class="k">return</span> <span class="n">jumble</span>
-
-<span class="n">word</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">deposit</span><span class="p">(</span><span class="n">current_cash</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">current_cash</span> <span class="o">+</span> <span class="n">amount</span>
 
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-   <span class="k">print</span><span class="p">(</span><span class="s">&quot;The jumble is: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">jumble</span><span class="p">)</span>
-   <span class="n">guess</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;What is your guess?&quot;</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">&quot;1 - Deposit&quot;</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">&quot;2 - Withdrawal&quot;</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">&quot;3 - Space Cash Balance&quot;</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">&quot;Any other key to exit&quot;</span><span class="p">)</span>
 
-   <span class="o">...</span>
+  <span class="n">command</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;What would you like to do? &quot;</span><span class="p">))</span>
+  <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s">&quot;1&quot;</span><span class="p">:</span>
+    <span class="n">amount</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;How much space bucks would you like to deposit? &quot;</span><span class="p">))</span>
+    <span class="n">total_cash</span> <span class="o">=</span> <span class="n">deposit</span><span class="p">(</span><span class="n">total_cash</span><span class="p">,</span> <span class="n">amount</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Thank you! You now have </span><span class="si">%s</span><span class="s"> &quot;</span> <span class="o">%</span> <span class="n">total_cash</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">break</span>
 </pre></div>
 </div>
-<p>Challenges:</p>
+<p>Bonus Challenges:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Look back at your work last week to see how you can check your guess
-against what the computer picked.</li>
-<li>Can you make a function that takes your <code class="docutils literal"><span class="pre">guess</span></code>, and compares it against
-the computers <code class="docutils literal"><span class="pre">word</span></code>, and returns if its correct or not?</li>
+<li>Add a function to that tells the user what temperature is. But because
+we&#8217;re sneaky, let&#8217;s use <code class="docutils literal"><span class="pre">random</span></code> like we did from other classes to
+randomly provide the weather.</li>
+<li>Add restrictions to your <code class="docutils literal"><span class="pre">deposit</span></code> and <code class="docutils literal"><span class="pre">withdraw</span></code> functions so that
+they cannot deposit negative values, and they cannot withdraw more than
+they have, respectively.</li>
 </ul>
 </div></blockquote>
 </div>
