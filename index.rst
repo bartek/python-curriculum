@@ -16,6 +16,7 @@ flex-time for attendance and any student running late.
    intro
    variables
    conditionals
+   functions
 
 
 The course is taught to various groups of students aged 11-13 and is taught with
