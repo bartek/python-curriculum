@@ -17,6 +17,7 @@ flex-time for attendance and any student running late.
    variables
    conditionals
    functions
+   review-with-trivia
 
 
 The course is taught to various groups of students aged 11-13 and is taught with

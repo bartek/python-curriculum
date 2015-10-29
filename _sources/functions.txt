@@ -42,7 +42,7 @@ Let's write our own function, and understand how it is built.
 .. sourcecode:: python
 
    def say_name(name):
-      print("Hello %s" name)
+      print("Hello %s" % name)
 
 Ok, let's break this down. A function is made up of three parts: *name*,
 *parameters*, and the *body*.

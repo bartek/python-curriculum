@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Review With Trivia (Lesson 5) &mdash; Python Curriculum 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Python Curriculum 0.1.0 documentation" href="index.html" />
+    <link rel="prev" title="Functions (Lesson 4)" href="functions.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="review-with-trivia-lesson-5">
+<h1>Review With Trivia (Lesson 5)<a class="headerlink" href="#review-with-trivia-lesson-5" title="Permalink to this headline">¶</a></h1>
+<p>Last week, functions were introduced, and it was a lot to take in. This class
+should focus on continuing the education of functions while perhaps introducing
+some simpler concepts.</p>
+<ul class="simple">
+<li>Introduce Python dictionaries</li>
+<li>Continue education of functions by working through a new exercise, and
+providing time to complete last weeks work if necessary.</li>
+</ul>
+<div class="section" id="dictionaries">
+<h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h2>
+<p>So far we&#8217;ve covered several types of variables. We have ints (numbers),
+strings, we&#8217;ve used lists a few times (remember buckets?), but now we want to
+introduce dictionaries.</p>
+<p>Dictionaries in any programming language are very useful. Their name explains
+what they are. In a Python dictionary you have what we call a <code class="docutils literal"><span class="pre">key</span></code>, and each
+<code class="docutils literal"><span class="pre">key</span></code> has a <code class="docutils literal"><span class="pre">value</span></code>. To think of it another way, just think that the
+dictionary has a list of questions (the key) and their definition (the value).</p>
+<p>Why are dictionaries useful? They are excellent for anything we have to look up.
+Imagine we made a dictionary for peoples names and their phone numbers. Let&#8217;s
+see what that might look like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">people</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">&#39;omar&#39;</span><span class="p">:</span> <span class="s">&#39;555-555-5555&#39;</span><span class="p">,</span>
+  <span class="s">&#39;amy&#39;</span><span class="p">:</span> <span class="s">&#39;416-200-1010&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Our program now has a dictionary of <code class="docutils literal"><span class="pre">people</span></code>. So how do we access this?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="s">&#39;omar&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>What if we try to access a person that does not exist in this dictionary?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="s">&#39;bartek&#39;</span><span class="p">])</span>
+<span class="o">...</span>
+<span class="ne">KeyError</span><span class="p">:</span> <span class="s">&#39;bartek&#39;</span>
+</pre></div>
+</div>
+<p>We can add new items to the dictionary in the same way we access an existing
+one, but we use variable assignment. Let&#8217;s look:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">people</span><span class="p">[</span><span class="s">&#39;bartek&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;610-001-1000&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="s">&#39;bartek&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>We no longer have a <code class="docutils literal"><span class="pre">KeyError</span></code>, because we have assigned a new definition
+(<code class="docutils literal"><span class="pre">key</span></code>) to this dictionary with the <code class="docutils literal"><span class="pre">key</span></code> of <code class="docutils literal"><span class="pre">bartek</span></code>.</p>
+<p>What do you think will happen if we change the <code class="docutils literal"><span class="pre">key</span></code> of an existing dictionary
+entry?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">people</span><span class="p">[</span><span class="s">&#39;bartek&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;not-a-number&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="s">&#39;bartek&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Like most of Python, the dictionary has useful functions on it. What if we
+wanted to see all the people in our dictionary, or just all the numbers?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">people</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="c"># Or, to see all the numbers</span>
+<span class="k">print</span><span class="p">(</span><span class="n">people</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>The dictionary doesn&#8217;t seem too useful now, but we will see its power in our
+upcoming exercise.</p>
+<p>Let the students have some time to define a dictionary and play with the
+concept. So they can see the results.</p>
+</div>
+<div class="section" id="building-a-trivia-game">
+<h2>Building a Trivia Game<a class="headerlink" href="#building-a-trivia-game" title="Permalink to this headline">¶</a></h2>
+<p>We&#8217;ve learned a lot, a whole lot, in the last several weeks, so we&#8217;re going to
+step back a bit and work through building a simple, but fun game together.</p>
+<p>Our game will be made of a few parts. First, we will need to assign players,
+design our questions. After wards, we need to build the game &#8220;loop&#8221;, this is
+where we ask the questions and collect points. Finally, we&#8217;ll need a function to
+show scores.</p>
+<p>This is a good exercise to go in step with the students. First, let&#8217;s assign the
+players. We&#8217;ll make this a list, so our game function does not have to worry too
+much about how many players we have. Since we&#8217;re such great programmers, this
+will expand without us touching it!</p>
+<div class="section" id="defining-the-variables">
+<h3>Defining the variables<a class="headerlink" href="#defining-the-variables" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">players</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Bartek&#39;</span><span class="p">,</span> <span class="s">&#39;Ivan&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Let&#8217;s make sure we remind them what lists are (buckets). We will see how useful
+they can be shortly.</p>
+<p>Then, let&#8217;s define some questions and answers for our trivia. We&#8217;ll use our new
+knowledge of dictionaries for this!</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">qa</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">&#39;Animal in Australia with a pouch?&#39;</span><span class="p">:</span> <span class="s">&#39;Kangaroo&#39;</span><span class="p">,</span>
+  <span class="s">&#39;Tallest building in Toronto&#39;</span><span class="p">:</span> <span class="s">&#39;CN Tower&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Once they&#8217;ve all had the chance of making these two items, let&#8217;s start on the
+game loop.</p>
+<p>The game loop is made up of everything we know, but we may need to review some
+of this as it&#8217;s been awhile. First, we define the function:</p>
+</div>
+<div class="section" id="building-the-game-loop">
+<h3>Building The Game Loop<a class="headerlink" href="#building-the-game-loop" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">play_trivia</span><span class="p">(</span><span class="n">chances</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+  <span class="o">....</span>
+</pre></div>
+</div>
+<p>We explain how our function only takes one optional argument. It is called
+<code class="docutils literal"><span class="pre">chances</span></code> and will define how many chances each player has before the game is
+up. Let&#8217;s explain how this can be called, with, or without the optional
+argument.</p>
+<p>Then, let&#8217;s continue our game. First, we will need a variable to hold scores of
+the players. We can use dictionaries for this. Let&#8217;s make everyone start at 0.</p>
+<p>At the end of our function, we will return <code class="docutils literal"><span class="pre">scores</span></code>, so let&#8217;s put that in now
+as well.</p>
+<p>Ok, our game doesn&#8217;t do much yet, but we&#8217;re setup to begin asking questions. We
+have to write two loops now. One for the amount of chances, and one for each
+player. Let&#8217;s see how that looks.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">play_trivia</span><span class="p">(</span><span class="n">chances</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="n">players</span><span class="p">:</span>
+        <span class="n">scores</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">chance</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">chances</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="n">players</span><span class="p">:</span>
+          <span class="k">print</span><span class="p">(</span><span class="s">&quot;You&#39;re up, </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">player</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Getting there. We&#8217;re telling the player it&#8217;s their turn, but if we run this,
+it&#8217;s just a bunch of prints right away. Our next step is to pick a random
+question, share it with the player, and ask their guess.</p>
+<p>Let&#8217;s see what that looks like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">play_trivia</span><span class="p">(</span><span class="n">chances</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="n">players</span><span class="p">:</span>
+        <span class="n">scores</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">chance</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">chances</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="n">players</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;You&#39;re up, </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">player</span><span class="p">)</span>
+
+            <span class="n">question</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">qa</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+            <span class="n">answer</span> <span class="o">=</span> <span class="n">qa</span><span class="p">[</span><span class="n">question</span><span class="p">]</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Your question is: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">question</span><span class="p">)</span>
+
+            <span class="n">guess</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;Your guess?&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Important things to share are the usage of <code class="docutils literal"><span class="pre">random.choice</span></code> and <code class="docutils literal"><span class="pre">qa.keys</span></code>,
+and how that works. Let&#8217;s break it down for the class. Then, explain how the
+random answer can be fetched using <code class="docutils literal"><span class="pre">qa[question]</span></code>. For someone new to Python,
+this can be very confusing unless explained!</p>
+<p>Now, we have a guess. So let&#8217;s write a function that checks the guess by getting
+the computers answer and comparing it to guess.</p>
+</div>
+<div class="section" id="python-thinks-differently-about-words">
+<h3>Python Thinks Differently About Words<a class="headerlink" href="#python-thinks-differently-about-words" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">check_guess</span><span class="p">(</span><span class="n">answer</span><span class="p">,</span> <span class="n">guess</span><span class="p">):</span>
+  <span class="n">guess</span> <span class="o">=</span> <span class="n">guess</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+  <span class="n">real_answer</span> <span class="o">=</span> <span class="n">real_answer</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+  <span class="k">return</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">real_answer</span>
+</pre></div>
+</div>
+<p>Ok, what&#8217;s going on here? Why do we <code class="docutils literal"><span class="pre">lower</span></code> the answers? This is a simple
+trick that will ignore capitals and all case when checking the answer. This is
+because Python cares about case. For Python, the words <code class="docutils literal"><span class="pre">Hello</span></code> and <code class="docutils literal"><span class="pre">hello</span></code>
+are different! To us, they are the same.</p>
+<p>Now, let&#8217;s use our new <code class="docutils literal"><span class="pre">check_guess</span></code> to check if they are correct, and give
+them some points!</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">play_trivia</span><span class="p">(</span><span class="n">chances</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="n">players</span><span class="p">:</span>
+        <span class="n">scores</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">chance</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">chances</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="n">players</span><span class="p">:</span>
+            <span class="n">question</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">qa</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+            <span class="n">answer</span> <span class="o">=</span> <span class="n">qa</span><span class="p">[</span><span class="n">question</span><span class="p">]</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;You&#39;re up, </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">player</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Your question is: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">question</span><span class="p">)</span>
+
+            <span class="n">guess</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;Your guess?&quot;</span><span class="p">)</span>
+            <span class="n">is_correct</span> <span class="o">=</span> <span class="n">check_guess</span><span class="p">(</span><span class="n">answer</span><span class="p">,</span> <span class="n">guess</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">is_correct</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;You&#39;re correct! 1 point!&quot;</span><span class="p">)</span>
+                <span class="n">scores</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;Oops! Not quite!&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">scores</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="wrapping-up">
+<h3>Wrapping Up<a class="headerlink" href="#wrapping-up" title="Permalink to this headline">¶</a></h3>
+<p>And now we have scores! Finally, we can wrap things up by writing a simple
+function to display the scores.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">display_scores</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot; ======== SCORE BOARD ========== &quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">player</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">scores</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;</span><span class="si">%s</span><span class="s"> = </span><span class="si">%s</span><span class="s"> &quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">score</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>And finally, we put it all together:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">qa</span> <span class="o">=</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+<span class="n">players</span> <span class="o">=</span> <span class="p">[</span> <span class="o">.....</span> <span class="p">]</span>
+
+<span class="n">scores</span> <span class="o">=</span> <span class="n">play_trivia</span><span class="p">(</span><span class="n">chances</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">display_scores</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Review With Trivia (Lesson 5)</a><ul>
+<li><a class="reference internal" href="#dictionaries">Dictionaries</a></li>
+<li><a class="reference internal" href="#building-a-trivia-game">Building a Trivia Game</a><ul>
+<li><a class="reference internal" href="#defining-the-variables">Defining the variables</a></li>
+<li><a class="reference internal" href="#building-the-game-loop">Building The Game Loop</a></li>
+<li><a class="reference internal" href="#python-thinks-differently-about-words">Python Thinks Differently About Words</a></li>
+<li><a class="reference internal" href="#wrapping-up">Wrapping Up</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="functions.html" title="previous chapter">Functions (Lesson 4)</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/review-with-trivia.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Bartek Ciszkowski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/review-with-trivia.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
