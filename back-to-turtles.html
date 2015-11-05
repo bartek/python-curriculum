@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Back to Turtles (Lesson 6) &mdash; Python Curriculum 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Python Curriculum 0.1.0 documentation" href="index.html" />
+    <link rel="prev" title="Review With Trivia (Lesson 5)" href="review-with-trivia.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="back-to-turtles-lesson-6">
+<h1>Back to Turtles (Lesson 6)<a class="headerlink" href="#back-to-turtles-lesson-6" title="Permalink to this headline">¶</a></h1>
+<p>After some fast paced weeks of learning the fundementals of Python, it&#8217;s a good
+opportunity to go back to playing with Turtle. We used Turtle in the first week
+with some very basic commands, before we really understood much of Python. Now,
+we can apply some of our new knowledge to explore the possibilities of this
+module.</p>
+<p>Goals for this week:</p>
+<ul class="simple">
+<li>Allow time for finishing up the activity in Lesson 5 if not completed.</li>
+<li>Going back to the turtle module, and applying our knowledge of functions, loops, variables, and data structures.</li>
+</ul>
+<div class="section" id="starting-with-the-basic-square">
+<h2>Starting with the basic square<a class="headerlink" href="#starting-with-the-basic-square" title="Permalink to this headline">¶</a></h2>
+<p>We already learned how to use turtle in some basic manners, but it&#8217;s been
+awhile. So let&#8217;s take a look at what that looks like.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s">&#39;circle&#39;</span><span class="p">)</span>
+
+<span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is pretty repetitive. Ask the class if anyone can see the pattern and point
+it out.</p>
+<p>We can improve this and make it less repetitive by using loops. Now that we&#8217;ve
+identified the pattern (forward, left, 4 times) we can re-write our code as a
+loop:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+   <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+   <span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The benefits here are huge! Right away, we can adjust the size of our square
+with one simple change (Changing <code class="docutils literal"><span class="pre">t.forward</span></code>), rather than doing it four
+times, for each time that function is used.</p>
+<p>Let&#8217;s go one step further and make this a function, so we can easily use it
+later.</p>
+<p>Ask the class if anyone can tell me how I write a function. Does a square
+function take parameters?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+   <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+      <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+      <span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We must note here that <code class="docutils literal"><span class="pre">size</span></code> is the parameter that defines how large each
+line in our square will be, thus it will define how large the overall square
+will be.</p>
+<p>Great! Let&#8217;s make sure we save this as we&#8217;ll use it later.</p>
+</div>
+<div class="section" id="drawing-stars">
+<h2>Drawing Stars<a class="headerlink" href="#drawing-stars" title="Permalink to this headline">¶</a></h2>
+<p>Squares are alright, but they are pretty simple, and not too exciting. So let&#8217;s
+try and ramp it up. How would we draw a star?</p>
+<p>Ask the class: How many points does a typical star have?</p>
+<p>Drawing a star should be very similar to drawing a square. We&#8217;ll want to draw
+several lines (8, perhaps), and turn left, but not 90 degrees. What&#8217;s a possible
+good number?</p>
+<p>In the end, the class may help you get a different solution but effectively, you
+want something like so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">):</span>
+   <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+   <span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">225</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>What if we used a smaller angle (<code class="docutils literal"><span class="pre">175</span></code> instead of <code class="docutils literal"><span class="pre">225</span></code>), and looped many
+more times? Let&#8217;s try a few examples and see the results.</p>
+<p>Eventually, let&#8217;s save this star as another function, named <code class="docutils literal"><span class="pre">star</span></code></p>
+</div>
+<div class="section" id="conditionals-in-our-shapes">
+<h2>Conditionals in our shapes<a class="headerlink" href="#conditionals-in-our-shapes" title="Permalink to this headline">¶</a></h2>
+<p>Using very similar code to our star, we can create a large variety of shapes. We
+can even go further and use conditionals to create some pretty cool shapes.</p>
+<p>Let&#8217;s write out this function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">19</span><span class="p">):</span>
+   <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">175</span><span class="p">)</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">225</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For the class, the conditional itself should be pretty straight forward. We&#8217;ve
+done this and they understand the concepts. But what is the <code class="docutils literal"><span class="pre">%</span></code> symbol?</p>
+<p>Let&#8217;s explain modulus at a high level. Essentially, it&#8217;s saying <em>&#8220;What is the
+amount left over when you divide the numbe rin variable x into two equal
+parts?&#8221;</em></p>
+<p>After explanation, allow the students to guess what might be drawn, and then run
+it.</p>
+<p>Allow them to write the code for this as well, modifying it as they wish, and
+then making that a function as well.</p>
+</div>
+<div class="section" id="using-help-to-colour-our-shapes">
+<h2>Using Help to Colour Our Shapes<a class="headerlink" href="#using-help-to-colour-our-shapes" title="Permalink to this headline">¶</a></h2>
+<p>So now we have code that will draw us squares and a couple of neat looking
+stars. But how do we colour them in?</p>
+<p>Let&#8217;s introduce them to navigating some basic documentation. On trinket.io,
+there&#8217;s the option to see <em>Available Python Modules</em>. The direct link leads to
+<a class="reference external" href="https://trinket.io/docs/python">https://trinket.io/docs/python</a>.</p>
+<p>Working together, we&#8217;ll find the <code class="docutils literal"><span class="pre">turtle</span></code> module in this documentation, all
+the while explaining how we can use this.</p>
+<p>Finally, we will find turtle and go through the functions. Eventually
+<code class="docutils literal"><span class="pre">begin_fill</span></code> catches our eye. Let&#8217;s read it out loud to the class and
+understand how it works. Then, we try it out.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s">&#39;circle&#39;</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span>
+<span class="n">square</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>And we called our square function and notice  it&#8217;s now been filled in! We try a
+few more movements but notice something is happening, the fill has not stopped,
+and our entire screen is covered in colour.</p>
+<p>We look back at the documentation and we find <code class="docutils literal"><span class="pre">end_fill</span></code>, and apply it to our
+code.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s">&#39;circle&#39;</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span>
+<span class="n">square</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Working with the class, let&#8217;s add <code class="docutils literal"><span class="pre">filled</span></code> as an optional parameter to the
+square and star functions. Let&#8217;s make the default <code class="docutils literal"><span class="pre">False</span></code>, so we don&#8217;t always
+have to tell Python to fill or not.</p>
+<p>Then, we can apply simple conditional logic in each of our functions to decide
+whether to fill or not.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+   <span class="k">if</span> <span class="n">filled</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+      <span class="n">t</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span>
+   <span class="o">....</span>
+   <span class="k">if</span> <span class="n">filled</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+      <span class="n">t</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<p>Looking back at todays work, we now have an ample supply of functions that
+we can use over and over again in our code to draw interesting patterns and make
+a piece of art.</p>
+<p>Before we get to playing with these, let&#8217;s challenge the class to try and create
+their own shape.</p>
+<p>We&#8217;ll specifically talk about the octagon. It&#8217;s an eight sided shape, so we can
+use the same logic we used for squares and stars to draw it. This should be
+simple, but it&#8217;ll really test their knowledge of functions and loops, and
+everything we just did.</p>
+<p>Additionally,  challenge them to try and use the documentation to find out how
+to change the colour, and have them apply that in their code, in whatever way
+they wish. Ideally, they can make it another parameter in their draw functions.</p>
+<p>If they finish the activity early, allow for them to have some time playing with
+the various functions they built, and introduce them to <code class="docutils literal"><span class="pre">penup</span></code> in the turtle
+module, so they know how to &#8220;skip&#8221; along the screen.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Back to Turtles (Lesson 6)</a><ul>
+<li><a class="reference internal" href="#starting-with-the-basic-square">Starting with the basic square</a></li>
+<li><a class="reference internal" href="#drawing-stars">Drawing Stars</a></li>
+<li><a class="reference internal" href="#conditionals-in-our-shapes">Conditionals in our shapes</a></li>
+<li><a class="reference internal" href="#using-help-to-colour-our-shapes">Using Help to Colour Our Shapes</a></li>
+<li><a class="reference internal" href="#exercise">Exercise</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="review-with-trivia.html" title="previous chapter">Review With Trivia (Lesson 5)</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/back-to-turtles.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Bartek Ciszkowski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/back-to-turtles.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
