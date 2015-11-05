@@ -201,7 +201,7 @@ simple, but it'll really test their knowledge of functions and loops, and
 everything we just did.
 
 
-.. sourecode:: python
+.. sourcecode:: python
 
    import turtle
    t = turtle.Turtle()
