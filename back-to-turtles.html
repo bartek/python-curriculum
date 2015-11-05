@@ -193,6 +193,15 @@ their own shape.</p>
 use the same logic we used for squares and stars to draw it. This should be
 simple, but it&#8217;ll really test their knowledge of functions and loops, and
 everything we just did.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s">&#39;circle&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">):</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Additionally,  challenge them to try and use the documentation to find out how
 to change the colour, and have them apply that in their code, in whatever way
 they wish. Ideally, they can make it another parameter in their draw functions.</p>
