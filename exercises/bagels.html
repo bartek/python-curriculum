@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Bagels &mdash; Python Curriculum 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Python Curriculum 0.1.0 documentation" href="../index.html" />
+    <link rel="prev" title="Back to Turtles (Lesson 6)" href="../back-to-turtles.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="bagels">
+<h1>Bagels<a class="headerlink" href="#bagels" title="Permalink to this headline">¶</a></h1>
+<p>Bagels is a deduction game you can play with a friend. Your friend thinks up a
+random 3-digit number with no repeating digits, and you try to guess what that
+number is. After each guess, your friend gives you three types of clues:</p>
+<ul class="simple">
+<li>Bagels - None of the three digits you guessed is the secret number.</li>
+<li>Pico - One of the digits is the secret number, but your guess has the digit in the wrong place.</li>
+<li>Fermi - Your guess has a correct digit in the correct place.</li>
+</ul>
+<p>You can get multiple clues after each guess. If the secret number is <code class="docutils literal"><span class="pre">456</span></code> and
+your guess is <code class="docutils literal"><span class="pre">546</span></code>, the clues would be <code class="docutils literal"><span class="pre">fermi</span> <span class="pre">pico</span> <span class="pre">pico</span></code>. The 6 provides
+<code class="docutils literal"><span class="pre">fermi</span></code> and the 5 and 4 provide <code class="docutils literal"><span class="pre">pico</span> <span class="pre">pico</span></code>.</p>
+<p>Below you&#8217;ll find the pieces of this program. Your mission is to fill in the
+missing pieces (All denoted by <code class="docutils literal"><span class="pre">____________</span></code> lines), and get the Bagel game
+working.</p>
+<p>Think about how you worked on your trivia and hang man games. They are very
+similar in style and functionality compared to this.</p>
+<div class="section" id="breaking-down-the-program">
+<h2>Breaking down the program<a class="headerlink" href="#breaking-down-the-program" title="Permalink to this headline">¶</a></h2>
+<p>Many times, a great way to understand how to build a complex program is by
+breaking it down into smaller bits. It&#8217;s hard to tell someone how Bagels works
+and then expect them to explain how to build it, but if you think about the
+smaller pieces, it becomes a little easier.</p>
+<p>Let&#8217;s think about Bagels and see if we can identify the parts of the program.</p>
+<ul class="simple">
+<li>First, re-reading the game notes, we see that a &#8220;friend thinks of a 3-digit
+number&#8221;. In this case, that friend will be the computer. So, perhaps we will
+need <strong>a function that can generate a random 3 digit number</strong></li>
+<li>We can see that we will need to be able to guess the number, so we will need
+<strong>a function that allows for user input</strong></li>
+<li>Then, we will get clues about our guess. We will need <strong>a function or code
+that checks the players input (guess) and provides the clues</strong></li>
+<li>Finally, because this is a game, we will need to have a game loop. This has
+actually been provided for you in the exercise below.</li>
+</ul>
+<p>Overall, the games style is very similar to the Trivia/Hangman games we worked
+on, but it&#8217;ll be best if we take it step by step. So let&#8217;s do that.</p>
+</div>
+<div class="section" id="generating-a-secret-number">
+<h2>Generating a secret number<a class="headerlink" href="#generating-a-secret-number" title="Permalink to this headline">¶</a></h2>
+<p>The first step is having the computer generate a random 3 digit number. We did a
+little bit of this previously. Let&#8217;s look at what that function may look like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">getSecretNumber</span><span class="p">():</span>
+   <span class="c"># Remember, anything that has the # before it is a comment. Python ignores</span>
+   <span class="c"># these and they are purely for your reference.</span>
+
+   <span class="c"># Collect a bunch of random numbers from 0-9 to be used in our final</span>
+   <span class="c"># secret number.</span>
+   <span class="n">numbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+   <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+   <span class="n">secretNumber</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+
+   <span class="c"># How do we loop again? Here I use range to loop 3 times, because our</span>
+   <span class="c"># secret number is 3 digits long. Fill in the blanks.</span>
+   <span class="n">____________</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+      <span class="c"># For each loop iteration, we want to get a number from `numbers`. Do</span>
+      <span class="c"># you remember how to access items in a list? Ask your mentor/teacher</span>
+      <span class="c"># if you&#39;re not sure!</span>
+      <span class="n">secretNumber</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">_______________</span><span class="p">)</span>
+
+   <span class="k">return</span> <span class="n">secretNumber</span>
+</pre></div>
+</div>
+<p>That&#8217;s great. Once this function is complete you can run it by calling it, like
+so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">getSecretNumber</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Each time you will see a different number. If not, look over your code.</p>
+<p><strong>Bonus</strong>: How can you change the <code class="docutils literal"><span class="pre">getSecretNumber</span></code> function so that it will
+take <strong>one parameter</strong> that lets the user change the amount of digits in the
+secret number. Once the parameter is passed, where else in the function would
+you have to change code?</p>
+</div>
+<div class="section" id="figuring-out-what-clues-to-display">
+<h2>Figuring out what clues to display<a class="headerlink" href="#figuring-out-what-clues-to-display" title="Permalink to this headline">¶</a></h2>
+<p>Next, let&#8217;s build a function that takes the a <code class="docutils literal"><span class="pre">guess</span></code>, and the
+<code class="docutils literal"><span class="pre">secretNumber</span></code> and returns the clues for us. Remember to read at the start of
+this exercise what clues should show up when.</p>
+<p>Let&#8217;s look at the function with some pieces missing. You must fill in the
+missing bits.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">getClues</span><span class="p">(</span><span class="n">guess</span><span class="p">,</span> <span class="n">secretNumber</span><span class="p">):</span>
+  <span class="c"># When is the user guess going to be correct? What values must we compare</span>
+  <span class="c"># for the winning condition?</span>
+  <span class="k">if</span> <span class="n">________________</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;You got it!&quot;</span><span class="p">)</span>
+
+  <span class="n">clue</span> <span class="o">=</span> <span class="p">[]</span>
+
+  <span class="c"># Let&#39;s check each number in the guess and see what clue to give.</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">guess</span><span class="p">)):</span>
+    <span class="c"># This number is in the correct spot within the secret number. What clue</span>
+    <span class="c"># do we give them?</span>
+    <span class="k">if</span> <span class="n">guess</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">secretNumber</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+      <span class="n">clue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;_________________&#39;</span><span class="p">)</span>
+    <span class="c"># The clue is in the secretNumber but not in the right spot. What variable</span>
+    <span class="c"># must we check and what clue do we give?</span>
+    <span class="k">elif</span> <span class="n">guess</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">____________</span><span class="p">:</span>
+      <span class="n">clue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;____________&#39;</span><span class="p">)</span>
+
+  <span class="c"># If no clues were added, what must we return to the user?</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">clue</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">___________________</span>
+
+  <span class="n">clue</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+  <span class="k">return</span> <span class="s">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">clue</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Remember you can test the function by calling <code class="docutils literal"><span class="pre">getClues()</span></code> with the two
+parameters it expects.</p>
+</div>
+<div class="section" id="building-the-game-loop">
+<h2>Building the game loop<a class="headerlink" href="#building-the-game-loop" title="Permalink to this headline">¶</a></h2>
+<p>Now it&#8217;s time to build the game loop and piece your functions together. First,
+we will create these two functions. They have been completed for you, just need
+to type them out.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">isOnlyDigits</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">num</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s">&#39;0 1 2 3 4 5 6 7 8 9&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+            <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="k">return</span> <span class="bp">True</span>
+
+
+<span class="k">def</span> <span class="nf">playAgain</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Do you want to play again? (yes or no)&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, the final game loop. Again, there are pieces missing signified by <cite>____________</cite>. A lot of this is customizable to your desires, simply adjust the wording as you wish.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># We must set the number of digits the secret number is. 3 is pretty hard, but</span>
+<span class="c"># you can always give your friends a harder number.</span>
+<span class="n">NUMDIGITS</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c"># How many guesses does the player get?</span>
+<span class="n">MAXGUESS</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;I am thinking of </span><span class="si">%s</span><span class="s">-digit number. Try to guess what it is.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">NUMDIGITS</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Here are some clues&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;When I say:    That means:&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;  Pico         One digit is correct but in the wrong position.&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;  Fermi        One digit is correct and in the right position.&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;  Bagels       No digit is correct.&#39;</span><span class="p">)</span>
+
+<span class="c"># How do we run a loop forever?</span>
+<span class="k">while</span> <span class="n">____________</span><span class="p">:</span>
+
+    <span class="c"># What function must we call to get our secret number?</span>
+    <span class="n">secretNum</span> <span class="o">=</span> <span class="n">_________________</span>
+
+    <span class="c"># Fill in the blanks!</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;I have thought up a number. You have </span><span class="si">%s</span><span class="s"> guesses to get it.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">__________</span><span class="p">))</span>
+
+    <span class="n">numGuesses</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="c"># What variable are we using to track the amount of current guesses? Hint: It&#39;s nearby!</span>
+    <span class="k">while</span> <span class="n">__________</span> <span class="o">&lt;=</span> <span class="n">MAXGUESS</span><span class="p">:</span>
+        <span class="n">guess</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">guess</span><span class="p">)</span> <span class="o">!=</span> <span class="n">NUMDIGITS</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">isOnlyDigits</span><span class="p">(</span><span class="n">guess</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Guess #</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">numGuesses</span><span class="p">)</span>
+            <span class="c"># How do we ask for input from the user?</span>
+            <span class="n">guess</span> <span class="o">=</span> <span class="n">______________</span>
+
+        <span class="c"># What function did we build to get clues? Make sure you pass all the</span>
+        <span class="c"># expected parameters.</span>
+        <span class="n">clue</span> <span class="o">=</span> <span class="n">___________________</span><span class="o">-</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Clue: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">clue</span><span class="p">)</span>
+
+        <span class="c"># What must we do to make sure that the number of guesses is going up,</span>
+        <span class="c"># so they can&#39;t guess forever? Obviously we must do something with this</span>
+        <span class="c"># numGuesses variable!</span>
+        <span class="n">numGuesses</span> <span class="n">________________</span>
+
+        <span class="c"># What condition would decide to break out of the game loop and end the game?</span>
+        <span class="k">if</span> <span class="n">____________</span><span class="p">:</span>
+            <span class="k">break</span>
+
+        <span class="c"># IF they ran out of guesses, we let them know.</span>
+        <span class="k">if</span> <span class="n">numGuesses</span> <span class="o">&gt;</span> <span class="n">MAXGUESS</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;You ran out of guesses. The answer was </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">secretNum</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">playAgain</span><span class="p">():</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+<p>Once you&#8217;ve filled in the blanks, it&#8217;s time to try your program out and debug.
+You might find problems but don&#8217;t worry, you can fix them, just keep playing
+with the program and you&#8217;ll figure it out!</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Bagels</a><ul>
+<li><a class="reference internal" href="#breaking-down-the-program">Breaking down the program</a></li>
+<li><a class="reference internal" href="#generating-a-secret-number">Generating a secret number</a></li>
+<li><a class="reference internal" href="#figuring-out-what-clues-to-display">Figuring out what clues to display</a></li>
+<li><a class="reference internal" href="#building-the-game-loop">Building the game loop</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../back-to-turtles.html" title="previous chapter">Back to Turtles (Lesson 6)</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/exercises/bagels.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Bartek Ciszkowski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="../_sources/exercises/bagels.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
