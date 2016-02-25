@@ -19,7 +19,6 @@ flex-time for attendance and any student running late.
    functions
    review-with-trivia
    back-to-turtles
-   exercises/fix-program
    exercises/bagels
 
 
