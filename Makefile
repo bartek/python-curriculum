@@ -201,6 +201,7 @@ gh-pages:
 	git submodule init
 	git submodule update
 	make html
+	rm -rf ./exercises
 	mv -fv _build/html/* ./
 	touch .nojekyll
 	git add -A
