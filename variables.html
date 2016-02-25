@@ -80,11 +80,33 @@ let&#8217;s see how the computer handles this operation. Can anyone guess the an
 <span class="k">print</span><span class="p">(</span><span class="s">&quot;Hello, my name is &quot;</span> <span class="o">+</span> <span class="n">first_name</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">last_name</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>We share that the <code class="docutils literal"><span class="pre">++</span></code> is joining my variables with a string. Explain why we
+<p>We share that the <code class="docutils literal"><span class="pre">+</span> <span class="pre">&quot;</span> <span class="pre">&quot;</span> <span class="pre">+</span></code> is joining my variables with a string. Explain why we
 must have an string with just a space in it. Show the students what happens if
 we simply had <code class="docutils literal"><span class="pre">first_name</span> <span class="pre">+</span> <span class="pre">last_name</span></code>.</p>
+<div class="section" id="numbers-strings-and-more">
+<h2>Numbers, Strings, And More!<a class="headerlink" href="#numbers-strings-and-more" title="Permalink to this headline">¶</a></h2>
+<p>If you&#8217;ve been looking closely, you&#8217;ll see that we used variables which we wrap
+in quotes (<code class="docutils literal"><span class="pre">&quot;</span></code>), and variables that are just plain numbers.</p>
+<p>In many programming languages, we have to tell the computer what these are.
+Python guesses for us based on how we type it. Why is it important for the
+computer to know what type of variables we are using? Well, it needs to know the
+best way to do what you want with the variable. Let&#8217;s look at the following
+example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="mi">20</span> <span class="o">+</span> <span class="mi">16</span><span class="p">)</span>
+
+<span class="c"># vs.</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;20&quot;</span> <span class="o">+</span> <span class="s">&quot;16&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We need to understand that any variable <em>value</em> wrapped in quotes is a <em>String</em>,
+and a number with no decimals is an <em>Integer</em>. As you can see, Python treats
+each differently.</p>
+<p>Ask the students if they can guess what the term is for a number that looks like
+this: <code class="docutils literal"><span class="pre">105.10</span></code>.</p>
 <p>Provide the students time to enter their own variables, join strings, and fiddle
 with these new concepts.</p>
+</div>
 <div class="section" id="introducing-lists">
 <h2>Introducing Lists<a class="headerlink" href="#introducing-lists" title="Permalink to this headline">¶</a></h2>
 <p>Lists are very important in any programming language, as they let us put
@@ -170,6 +192,7 @@ more and see the results, it will begin to click.</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Variables &amp; Iteration (Lesson 2)</a><ul>
+<li><a class="reference internal" href="#numbers-strings-and-more">Numbers, Strings, And More!</a></li>
 <li><a class="reference internal" href="#introducing-lists">Introducing Lists</a></li>
 <li><a class="reference internal" href="#iteration">Iteration</a></li>
 </ul>

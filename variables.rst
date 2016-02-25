@@ -54,9 +54,36 @@ Finally, let's share that variables can be used together, and joined using the
    last_name = "Ciszkowski"
    print("Hello, my name is " + first_name + " " + last_name)
 
-We share that the ``++`` is joining my variables with a string. Explain why we
+We share that the ``+ " " +`` is joining my variables with a string. Explain why we
 must have an string with just a space in it. Show the students what happens if
 we simply had ``first_name + last_name``.
+
+Numbers, Strings, And More!
+---------------------------
+
+If you've been looking closely, you'll see that we used variables which we wrap
+in quotes (``"``), and variables that are just plain numbers.
+
+In many programming languages, we have to tell the computer what these are.
+Python guesses for us based on how we type it. Why is it important for the
+computer to know what type of variables we are using? Well, it needs to know the
+best way to do what you want with the variable. Let's look at the following
+example:
+
+.. sourcecode:: python
+
+   print(20 + 16)
+
+   # vs.
+
+   print("20" + "16")
+
+We need to understand that any variable *value* wrapped in quotes is a *String*,
+and a number with no decimals is an *Integer*. As you can see, Python treats
+each differently.
+
+Ask the students if they can guess what the term is for a number that looks like
+this: ``105.10``.
 
 Provide the students time to enter their own variables, join strings, and fiddle
 with these new concepts.
