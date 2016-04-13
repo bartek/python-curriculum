@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Iteration, Reviewed (Lesson 7) &mdash; Python Curriculum 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Python Curriculum 0.1.0 documentation" href="index.html" />
+    <link rel="next" title="Bagels" href="exercises/bagels.html" />
+    <link rel="prev" title="Back to Turtles (Lesson 6)" href="back-to-turtles.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="iteration-reviewed-lesson-7">
+<h1>Iteration, Reviewed (Lesson 7)<a class="headerlink" href="#iteration-reviewed-lesson-7" title="Permalink to this headline">¶</a></h1>
+<p>Now that we&#8217;ve had some time to understand all sorts of fundamentals of Python,
+we need to focus on iteration. Iteration is important because it allows us to do
+something more than once. That something is usually a task we want to repeat a
+set number of times.</p>
+<p>For example, what if a game has two or more players? We want to do the same
+thing until all players have had a chance. This is what we call iteration, or
+<em>looping</em>.</p>
+<div class="section" id="setting-it-up">
+<h2>Setting It Up<a class="headerlink" href="#setting-it-up" title="Permalink to this headline">¶</a></h2>
+<p>Before we can learn about iteration in detail, let&#8217;s build the basics of our
+game. We&#8217;ll do something we&#8217;ve done before,  which is a simple trivia game, but
+we&#8217;ll spruce it up with some new techniques that we&#8217;ll learn today.</p>
+<p>First, we&#8217;re going to build a list of words. Remember, lists are like buckets
+for variables, strings, and numbers. We can put whatever inside them, and we use
+the square brackets to open and close the bucket. Let&#8217;s do that first.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">words</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+<p>Work with the class to collect about 5 words.</p>
+<p>Now, let&#8217;s use this list. Remember the <code class="docutils literal"><span class="pre">for</span></code> command? This is another code
+block, just like <code class="docutils literal"><span class="pre">if</span></code>. <code class="docutils literal"><span class="pre">for</span></code> lets us go over every item inside a list. Let&#8217;s
+remind ourselves what this looks like.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;super&#39;</span><span class="p">,</span> <span class="s">&#39;exciting&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Done all words.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And of course, we see each <code class="docutils literal"><span class="pre">word</span></code> printed on the screen. Remember that we have
+to be tabbing. Because <code class="docutils literal"><span class="pre">for</span></code> is a code block, anything tabbed underneath it,
+will be run in the loop. Notice how our final <code class="docutils literal"><span class="pre">print</span></code> is only printed once, at
+the end, because it is not inside the code block.</p>
+<p>Alright! Let&#8217;s just get some basics done in our game before we move on to the
+improving our trivia game. We&#8217;ll add simple input and use <code class="docutils literal"><span class="pre">if</span></code> and <code class="docutils literal"><span class="pre">else</span></code> to
+tell the user if they are right or wrong.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+   <span class="n">guess</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;What is your guess?&quot;</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">guess</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+      <span class="k">print</span><span class="p">(</span><span class="s">&quot;You&#39;re correct!&quot;</span><span class="p">)</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="s">&quot;Sorry, that&#39;s not the right word.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>Give them some time to write out this code and make sure everyone has it
+running.</em></p>
+<p>Great! But there&#8217;s something really tough about this game .. we&#8217;re asked to
+guess a word and we have no hints or anything! How can we solve this? Well, we
+can use loops.</p>
+</div>
+<div class="section" id="scrambling-a-word-using-loops">
+<h2>Scrambling a Word Using Loops<a class="headerlink" href="#scrambling-a-word-using-loops" title="Permalink to this headline">¶</a></h2>
+<p>What if we could show only parts of a word and use that as a hint? The great
+thing about loops is we can do just that. In Python, a word is actually just a
+list of letters. Let&#8217;s build a new function. We&#8217;ll put this on the top of our
+program, so above your existing code. This function will take a single word as
+the parameter and then return the scrambled word. First, let&#8217;s build the basics
+of this function.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">scramble_word</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+   <span class="k">return</span> <span class="n">word</span>
+</pre></div>
+</div>
+<p>And then, let&#8217;s adjust our game loop to <em>call</em> this function, so we can print
+the scrambled word.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+   <span class="n">scrambled</span> <span class="o">=</span> <span class="n">scramble_word</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;Your Hint Is: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">scrambled</span><span class="p">)</span>
+   <span class="n">guess</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;What is your guess?&quot;</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">guess</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+      <span class="k">print</span><span class="p">(</span><span class="s">&quot;You&#39;re correct!&quot;</span><span class="p">)</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="s">&quot;Sorry, that&#39;s not the right word.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>Review with the class the parts of defining a function. In particular, how the
+function is taking a single word and returns a word, and then how we call it.
+We&#8217;re just passing around a variable</em></p>
+<p>We&#8217;ll run the program, but we notice something right away &#8211; The word is not
+scrambled! Of course not, because our function doesn&#8217;t do anything. It just
+passes the word back. Now that we have everything in place, we can focus on our
+<code class="docutils literal"><span class="pre">scramble_word</span></code> function.</p>
+<p>As we mentioned before, a string in Python is just a list of letters. So let&#8217;s
+improve our scramble word function. What we&#8217;ll do is go over every letter in the
+word, and every second character, we will replace the letter with a <code class="docutils literal"><span class="pre">*</span></code>.</p>
+<p><em>You&#8217;ll go through implemenenting the below scramble word function step by step.
+Recommended process is as follows</em></p>
+<ul class="simple">
+<li>Implement the <code class="docutils literal"><span class="pre">for</span></code> loop and print out each letter, showing how you can see the breakdown of the word.</li>
+<li>Make a variable called <code class="docutils literal"><span class="pre">new_word</span></code> and add the letter to it, returning <code class="docutils literal"><span class="pre">new_word</span></code>. No modificaitons yet</li>
+<li>Finally, add the <code class="docutils literal"><span class="pre">*</span></code> character swapping by implementing the <code class="docutils literal"><span class="pre">counter</span></code> and the <code class="docutils literal"><span class="pre">if</span></code> block.</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">scramble_word</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+   <span class="n">new_word</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+   <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+   <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+      <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
+      <span class="k">if</span> <span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+         <span class="n">letter</span> <span class="o">=</span> <span class="s">&quot;*&quot;</span>
+      <span class="n">new_word</span> <span class="o">=</span> <span class="n">new_word</span> <span class="o">+</span> <span class="n">letter</span>
+   <span class="k">return</span> <span class="n">new_word</span>
+</pre></div>
+</div>
+<p>Give the students time to fill this out. Mention that they can modify the <code class="docutils literal"><span class="pre">*</span></code>
+to be anything, including multiple letters, as well as changing the modulus from
+<code class="docutils literal"><span class="pre">2</span></code> to something else. Let them see how that reacts.</p>
+<p>Now, let&#8217;s run our program! We&#8217;re getting somewhere. We&#8217;re now using two loops
+in our program, and the game is becoming a little more interesting. Let&#8217;s see
+how we can make our game a little more interesting not with loops, but with some
+existing knowledge.</p>
+</div>
+<div class="section" id="adding-a-timer">
+<h2>Adding a timer<a class="headerlink" href="#adding-a-timer" title="Permalink to this headline">¶</a></h2>
+<p>Timers are a great way to make any program more interesting. You give a sense of
+pace and you make the player think more. Most games you play probably have a
+timer for how much time you have left in the level. Python lets us do this
+pretty easily.</p>
+<p>We&#8217;ll now introduce a new module we can import. As a reminder, using <code class="docutils literal"><span class="pre">import</span></code>
+is just a way for us to tell Python that we need this extra piece of code.
+Python comes with a lot of code, but we use <code class="docutils literal"><span class="pre">import</span></code> to help it understand
+exactly what it needs. Otherwise, if Python included all the possible code and
+functions for you right away, it&#8217;d make for a very big and slow program! <em>(This
+is not technically accurate, but is probably a decent, high-level explanation of
+imports)</em></p>
+<p>First, we&#8217;ll add the following to the top of our file.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">time</span>
+</pre></div>
+</div>
+<p>Then, let&#8217;s go into our game loop and use the time functions. Let&#8217;s see what
+that looks like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+   <span class="n">scrambled</span> <span class="o">=</span> <span class="n">scramble_word</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;Your Hint Is: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">scrambled</span><span class="p">)</span>
+
+   <span class="c"># Start off the timer</span>
+   <span class="n">start_guess</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+   <span class="n">guess</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;What is your guess?&quot;</span><span class="p">)</span>
+
+   <span class="c"># End the timer, and display how long it took</span>
+   <span class="n">end_guess</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_guess</span>
+   <span class="k">print</span> <span class="p">(</span><span class="s">&quot;You took </span><span class="si">%s</span><span class="s"> seconds to guess that&quot;</span> <span class="o">%</span> <span class="n">end_guess</span><span class="p">)</span>
+
+   <span class="k">if</span> <span class="n">guess</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+      <span class="k">print</span><span class="p">(</span><span class="s">&quot;You&#39;re correct!&quot;</span><span class="p">)</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="s">&quot;Sorry, that&#39;s not the right word.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>Let them implement, and run it.</em></p>
+<p>Cool! One thing some students may notice is that the timer number is very big.
+We can introduce them to two ways to make this number different. First, we can
+use <code class="docutils literal"><span class="pre">round</span></code> to get a number with a certain amount of decimal places, or we can
+use <code class="docutils literal"><span class="pre">int</span></code> to make it have no decimal places. Implement either of the following
+and show them how it looks now.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">end_guess</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_guess</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s">&quot;You took </span><span class="si">%s</span><span class="s"> seconds to guess that&quot;</span> <span class="o">%</span> <span class="n">end_guess</span><span class="p">)</span>
+
+<span class="c"># Or.</span>
+
+<span class="n">end_guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_guess</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s">&quot;You took </span><span class="si">%s</span><span class="s"> seconds to guess that&quot;</span> <span class="o">%</span> <span class="n">end_guess</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Amazing! We have a pretty neat game now. Let&#8217;s do one more thing to really
+spruce it up, which will use loops again.</p>
+</div>
+<div class="section" id="adding-another-player">
+<h2>Adding another player<a class="headerlink" href="#adding-another-player" title="Permalink to this headline">¶</a></h2>
+<p>Many games have more than one player. Without loops, if we wanted to add more
+than one player we&#8217;d have to copy and paste the same code over and over again,
+depending on how many players we wanted. That&#8217;s pretty crazy and would make for
+some really big Python programs.</p>
+<p>Using lists and loops, we can easily add as many players as we want, with only a
+few changes of code. First, let&#8217;s make a new list with our player names.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">players</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Joy&#39;</span><span class="p">,</span> <span class="s">&#39;Claudia&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Make sure you add yourself, and then either your desk neighbour or anyone you&#8217;d
+like. Now, let&#8217;s add the new loop. This loop will begin before most of our game,
+so we&#8217;ll have to <em>TAB</em> a lot of code. The best way to do this is after you type
+your new <code class="docutils literal"><span class="pre">for</span></code> loop, simply select all the other code and press <em>TAB</em>.</p>
+<p>Your new code will look something like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">players</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Joy&#39;</span><span class="p">,</span> <span class="s">&#39;Claudia&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="n">players</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">&quot;It&#39;s %&#39;s turn!&quot;</span> <span class="o">%</span> <span class="n">player</span><span class="p">)</span>
+   <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+      <span class="n">scrambled</span> <span class="o">=</span> <span class="n">scramble_word</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+      <span class="k">print</span><span class="p">(</span><span class="s">&quot;Your Hint Is: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">scrambled</span><span class="p">)</span>
+
+      <span class="c"># Start off the timer</span>
+      <span class="n">start_guess</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+      <span class="n">guess</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;What is your guess?&quot;</span><span class="p">)</span>
+
+      <span class="c"># End the timer, and display how long it took</span>
+      <span class="n">end_guess</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_guess</span>
+      <span class="k">print</span> <span class="p">(</span><span class="s">&quot;You took </span><span class="si">%s</span><span class="s"> seconds to guess that&quot;</span> <span class="o">%</span> <span class="n">end_guess</span><span class="p">)</span>
+
+      <span class="k">if</span> <span class="n">guess</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+         <span class="k">print</span><span class="p">(</span><span class="s">&quot;You&#39;re correct!&quot;</span><span class="p">)</span>
+      <span class="k">else</span><span class="p">:</span>
+         <span class="k">print</span><span class="p">(</span><span class="s">&quot;Sorry, that&#39;s not the right word.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All we added was two lines, but it&#8217;s very important everything inside <code class="docutils literal"><span class="pre">for</span>
+<span class="pre">player</span> <span class="pre">in</span> <span class="pre">players</span></code> is now tabbed. We added a new code block, so we can&#8217;t forget
+to tab. You can spend a moment to show what would happen if we don&#8217;t tab
+(Compile error)</p>
+<p>At this point, the class should be mostly over. Give them some time to play with
+the program amongst themselves/friends, encouraging them to add more words and
+change things up. If there&#8217;s time, you can add simple score tracking using
+variables, and simply adding them up when they are correct, finally printing a
+total score when the player loop is complete.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Iteration, Reviewed (Lesson 7)</a><ul>
+<li><a class="reference internal" href="#setting-it-up">Setting It Up</a></li>
+<li><a class="reference internal" href="#scrambling-a-word-using-loops">Scrambling a Word Using Loops</a></li>
+<li><a class="reference internal" href="#adding-a-timer">Adding a timer</a></li>
+<li><a class="reference internal" href="#adding-another-player">Adding another player</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="back-to-turtles.html" title="previous chapter">Back to Turtles (Lesson 6)</a></li>
+      <li>Next: <a href="exercises/bagels.html" title="next chapter">Bagels</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/iteration.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Bartek Ciszkowski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/iteration.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
